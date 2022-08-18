@@ -10,11 +10,11 @@ module.exports = [
       settings: { roles: ["*"] }
     },
     {
-        route: 'login',
-        name: 'login',
+        route: 'Home',
+        name: 'Home',
         moduleId: './login',
         nav: true,
-        title: 'login'
+        title: 'Home'
     },
     {
         route: 'samples',

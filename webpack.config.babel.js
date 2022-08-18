@@ -32,7 +32,7 @@ const ENV =
   (process.env.NODE_ENV = "development");
 
 // basic configuration:
-const title = "Everyday Management System";
+const title = "TABOR ";
 const baseUrl = "/";
 const rootDir = path.resolve();
 const srcDir = path.resolve("src");

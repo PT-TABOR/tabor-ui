@@ -1,47 +1,32 @@
-import { Aurelia, inject } from 'aurelia-framework';
-import { AuthService } from "aurelia-authentication";
-import '../styles/signin.css';
+//import {computedFrom} from 'aurelia-framework';
+// import { inject, bindable } from 'aurelia-framework';
 
-@inject(Aurelia,AuthService)
-export class Login {
-    username = "dev";
-    password = "Standar123";
+import { inject, Aurelia, BindingEngine, computedFrom } from 'aurelia-framework';
+import { AuthService } from 'aurelia-authentication';
+import { Router } from 'aurelia-router';
+import { LocalStorage } from './utils/storage';
 
-    // username="";
-    // password="";
+@inject(Aurelia, Router, BindingEngine)
+export class Welcome {
+ 
 
-    constructor(aurelia, authService) {
-        this.aurelia = aurelia;
-        this.authService = authService;
-    }
+  //Getters can't be directly observed, so they must be dirty checked.
+  //However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
+  //To optimize by declaring the properties that this getter is computed from, uncomment the line below
+  //as well as the corresponding import above.
+  //@computedFrom('firstName', 'lastName')
 
-    login() {
-        return this.authService.login({ "username": this.username, "password": this.password })
-            .then(response => {
-                console.log("success logged " + response);
-                this.authService.getMe()
-                    .then(account => {
-                        // this.session.token = token;
-                        // this.session.data = account;
-                        if (account) {
-                            this.authService.authentication.storage.set("me", JSON.stringify(account));
-                        } else {
-                            this.authService.authentication.storage.remove("me");
-                        }
-                        this.aurelia.setRoot('app');
-                    })
-            })
-            .catch(err => {
-                console.log(err);
-                console.log("login failure");
-            });
-        //  return this.authService.login({ "username": this.username, "password": this.password })
-        //     .then(response => {
-        //         console.log("success logged " + response);
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //         console.log("login failure");
-        //     });
-    }
+  // constructor() {
+
+  // }
+
+  constructor(aurelia, router, bindingEngine) {
+    this.aurelia = aurelia;
+    this.router = router;
+    this.bindingEngine = bindingEngine;
+
+  
+  }
+
+  
 }

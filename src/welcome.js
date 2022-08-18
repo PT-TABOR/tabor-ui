@@ -8,7 +8,7 @@ import { LocalStorage } from './utils/storage';
 
 @inject(Aurelia, Router, BindingEngine, AuthService, LocalStorage)
 export class Welcome {
-  heading = 'Selamat datang di aplikasi everyday management system';
+  heading = 'Selamat datang di aplikasi TABOR Management System';
   firstName = 'John';
   lastName = 'Doe';
   previousValue = this.fullName;
