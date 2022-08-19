@@ -12,7 +12,7 @@ module.exports = [
     {
         route:['', 'Home'],
         name: 'Home',
-        moduleId: './login',
+        moduleId: './home',
         nav: true,
         title: 'Home'
     },

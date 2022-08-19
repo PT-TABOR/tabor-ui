@@ -11,11 +11,12 @@ export class AuthStep {
 
     run(routingContext, next) {
         const isLoggedIn = this.authService.authenticated;
-        const loginRoute = this.authService.config.loginRoute;
+        const loginRoute = '/home';
         const config = this.authService.authentication.config;
         const storage = this.authService.authentication.storage;
         const forbiddenRoute = "/forbidden";
 
+        console.log(isLoggedIn,loginRoute);
         if (routingContext.getAllInstructions().some(route => route.config.auth === true)) {
             if (!isLoggedIn) {
                 return next.cancel(new Redirect(loginRoute));
