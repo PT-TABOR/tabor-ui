@@ -1,7 +1,7 @@
 module.exports = [
   {
       
-    route: ['', 'Welcome'],
+    route: 'Welcome',
       name: 'welcome',
       moduleId: './welcome',
       nav: false,
@@ -10,7 +10,7 @@ module.exports = [
       settings: { roles: ["*"] }
     },
     {
-        route: 'Home',
+        route:['', 'Home'],
         name: 'Home',
         moduleId: './login',
         nav: true,
